@@ -3,6 +3,13 @@ const card = document.getElementById("card");
 const typing = document.getElementById("typing");
 const enterBtn = document.getElementById("enterBtn");
 const tip = document.querySelector(".tip");
+const landing = document.getElementById("landing");
+const about = document.getElementById("about");
+const musicBtn = document.getElementById("musicBtn");
+const backTop = document.getElementById("backTop");
+const glow = document.querySelector(".cursor-glow");
+const stars = document.querySelector(".stars");
+const profileCard = document.getElementById("profileCard");
 
 const text = `Hello ♡
 你好呀
@@ -14,121 +21,84 @@ I'm Xin. ♡
 我是欣欣.
 
 It's nice to meet you. ♡
-很高興認識你壓 ~ `;
+很高興認識你壓 ~`;
 
 let index = 0;
 let played = false;
 
+function makeStars(){
+    const icons = ["✦","♡","·","✧"];
+    for(let i = 0; i < 42; i++){
+        const star = document.createElement("span");
+        star.className = "star";
+        star.textContent = icons[Math.floor(Math.random() * icons.length)];
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.fontSize = `${10 + Math.random() * 18}px`;
+        star.style.animationDuration = `${8 + Math.random() * 12}s`;
+        star.style.animationDelay = `${Math.random() * 10}s`;
+        stars.appendChild(star);
+    }
+}
+makeStars();
+
+document.addEventListener("mousemove", (event) => {
+    if(!glow) return;
+    glow.style.left = `${event.clientX}px`;
+    glow.style.top = `${event.clientY}px`;
+});
+
 heart.addEventListener("click", () => {
-
     if(played) return;
-
     played = true;
-
-    tip.classList.add("hide");   // 👈 讓 Touch 消失
-
-    card.classList.remove("hidden");
-
-    typeWriter();
-
+    heart.classList.add("clicked");
+    tip.classList.add("hide");
+    setTimeout(() => {
+        card.classList.remove("hidden");
+        typeWriter();
+    }, 380);
 });
 
 function typeWriter(){
-
     if(index < text.length){
-
-        typing.innerHTML += text.charAt(index);
-
+        const char = text.charAt(index);
+        typing.innerHTML += char;
         index++;
-
-        setTimeout(typeWriter,45);
-
+        const pause = [".","♡","~","\n"].includes(char) ? 170 : 42;
+        setTimeout(typeWriter, pause);
     }else{
-
         enterBtn.classList.remove("hidden");
-
     }
-
 }
-const musicBtn = document.getElementById("musicBtn");
-
-musicBtn.addEventListener("click", () => {
-    window.open(
-        "https://www.youtube.com/watch?v=RMzwZZXt2co",
-        "_blank"
-    );
-});
-
-// ==========================
-// About Page
-// ==========================
-
-const about = document.getElementById("about");
 
 enterBtn.addEventListener("click", () => {
-
-    // 第一頁淡出
-    document.querySelector(".container").style.opacity = "0";
-    document.querySelector(".container").style.transition = ".8s";
-
-    // 0.8 秒後切換
+    landing.classList.add("exit");
+    document.body.classList.add("about-open");
     setTimeout(() => {
-
-        document.querySelector(".container").style.display = "none";
-
+        landing.style.display = "none";
         about.classList.add("show");
-
-         setTimeout(() => {
-
-        document.querySelector(".logo").classList.add("show");
-
-    },300);
-
-    },800);
-
+    }, 760);
 });
 
-// ==========================
-// 點頭像
-// ==========================
-
-const photo = document.getElementById("photo");
-const avatar = document.querySelector(".avatar");
-const introPanel = document.getElementById("introPanel");
-const content = document.getElementById("content");
-const titleBox = document.getElementById("titleBox");
-
-
-photo.addEventListener("click", () => {
-
-    titleBox.classList.add("fade");
-
-    avatar.classList.add("move");
-
-    setTimeout(() => {
-
-        introPanel.classList.add("show");   // 👈 打開介紹
-
-        
-
-        showIntro();                        // 👈 開始一句一句動畫
-
-    },400);
-
+backTop.addEventListener("click", () => {
+    about.classList.remove("show");
+    document.body.classList.remove("about-open");
+    landing.style.display = "grid";
+    setTimeout(() => landing.classList.remove("exit"), 50);
 });
 
-const fadeItems = document.querySelectorAll(".fade-item");
+musicBtn.addEventListener("click", () => {
+    window.open("https://www.youtube.com/watch?v=RMzwZZXt2co", "_blank");
+});
 
-function showIntro(){
+profileCard.addEventListener("mousemove", (event) => {
+    const rect = profileCard.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 8;
+    const rotateX = ((y / rect.height) - 0.5) * -8;
+    profileCard.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
 
-    fadeItems.forEach((item,index)=>{
-
-        setTimeout(()=>{
-
-            item.classList.add("show");
-
-        },index*650);
-
-    });
-
-}
+profileCard.addEventListener("mouseleave", () => {
+    profileCard.style.transform = "perspective(900px) rotateX(0) rotateY(0)";
+});
