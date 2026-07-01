@@ -1,0 +1,642 @@
+
+body{
+    margin:0;
+    background:#0f0f0f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:"Cormorant Garamond", serif;
+    color:white;
+}
+
+.container{
+    text-align:center;
+    
+}
+#heart{
+    font-size:150px;
+    cursor:pointer;
+    display:inline-block;
+
+    animation: heartbeat 1.6s infinite;
+
+    filter: drop-shadow(0 0 25px rgba(255, 80, 120, 0.4));
+
+    transition: filter .4s ease, transform .4s ease;
+}
+#heart:hover{
+    filter: drop-shadow(0 0 50px rgba(255, 80, 120, 0.8));
+}
+#heart{
+    font-size:200px;
+    cursor:pointer;
+
+    animation: heartbeat 1s infinite;
+}
+
+.tip{
+opacity:.85;
+
+    font-size:30px;
+
+    margin-top:20px;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    text-shadow:
+      
+        0 0 30px rgba(255,255,255,.45),
+        0 0 30px rgba(255,80,120,.35);
+  
+
+}
+
+@keyframes heartbeat{
+
+0%{
+transform:scale(1);
+}
+
+25%{
+transform:scale(1.15);
+}
+
+40%{
+transform:scale(1);
+}
+
+60%{
+transform:scale(1.2);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+#heart{
+    animation: heartbeat 1.6s infinite;
+    transition: .3s;
+}
+
+#heart:hover{
+    animation-duration:0.8s;
+}
+#card{
+
+margin-top:20px;
+
+transform: translateY(-30px);
+
+padding:30px;
+
+width:800px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:20px;
+
+backdrop-filter:blur(10px);
+
+animation: fade .8s ease;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+button{
+
+    font-size:30px;
+
+    margin-top:40px;
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#111;
+
+    font-family:"Cormorant Garamond", serif;
+
+    transition:.3s;
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.10),
+        0 0 25px rgba(255,255,255,.25);
+
+}
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,.45),
+        0 0 15px rgba(255,255,255,.45);
+
+}
+button{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+}
+#typing{
+
+    white-space:pre-line;
+
+    text-align:left;
+
+    line-height:2;
+
+    font-size:25px;
+
+    min-height:240px;
+
+    letter-spacing:.5px;
+
+  text-shadow: 
+  0 0 8px rgba(255,255,255,.45),
+0 0 20px rgba(255,255,255,.50);
+
+}
+.hide{
+
+    opacity:0;
+
+    transform:translateY(-10px);
+
+    transition:.6s;
+
+}
+
+#musicBtn{
+   
+    letter-spacing:1px;
+  
+    white-space: nowrap;
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 18px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:9999;
+
+    overflow:hidden;
+
+    width:46px;
+  
+  
+  
+  
+
+}
+
+#musicBtn .text{
+
+    opacity: 0;
+
+    max-width: 0;
+
+    overflow: hidden;
+
+    transition: all .35s ease;
+
+}
+
+#musicBtn:hover{
+
+    width: 105px;
+
+}
+
+#musicBtn:hover .text{
+
+    opacity: 1;
+
+    max-width: 120px;
+
+}
+
+
+/* ==========================
+        About Page
+========================== */
+
+#about{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(40px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        visibility .9s;
+
+
+    background:
+    radial-gradient(circle at top,
+    rgba(255,90,150,.05),
+    transparent 45%),
+
+    radial-gradient(circle at bottom right,
+    rgba(120,90,255,.04),
+    transparent 40%),
+
+    #0f0f0f;
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+.about-page{
+
+    width:100%;
+    height:100%;
+
+}
+
+.logo{
+
+    text-shadow:
+    0 0 10px rgba(255,150,200,.7),
+    0 0 15px rgba(218, 85, 162, 0.45),
+    0 0 25px rgba(255,120,190,.25);
+
+    position:absolute;
+
+    top:35px;
+    left:45px;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:all .8s ease;
+}
+
+
+.logo.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+.logo span{
+
+    margin-left:8px;
+
+}
+
+.content{
+
+    width:700px;
+
+    position:absolute;
+
+    left:50%;
+    top: 45%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+    
+}
+
+.content.fade{
+
+    opacity:0;
+
+    transition:.8s ease;
+
+
+}
+
+.content h1{
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.7),
+    0 0 20px rgba(255,170,220,.45);
+
+    font-size:90px;
+
+    font-weight:300;
+
+    margin:0;
+
+}
+
+.content h2{
+
+     text-shadow:
+    0 0 10px rgba(255,255,255,.6),
+    0 0 20px rgba(255,170,220,.4);
+
+
+    font-size:60px;
+
+    margin:10px 0 20px;
+
+}
+
+.welcome{
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.5),
+    0 0 20px rgba(255,255,255,.5);
+
+    font-size:30px;
+
+    opacity:.65;
+
+    margin-bottom:55px;
+
+}
+
+.avatar{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:50px;
+
+}
+
+.photo{
+
+    filter:saturate(1.1);
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background-image:url("./images/AA.jpeg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 18px rgba(255,255,255,.08),
+        0 0 45px rgba(255,255,255,.04);
+
+    transition:.35s ease;
+
+    cursor:pointer;
+
+}
+
+.photo:hover{
+
+    transform:scale(1.03);
+    box-shadow:
+        0 0 28px rgba(255,255,255,.15),
+        0 0 60px rgba(255,255,255,.08);
+
+
+}
+
+.intro{
+
+    width:520px;
+
+    margin:auto;
+
+    line-height:2;
+
+    opacity:.8;
+
+    font-size:17px;
+
+}
+
+
+/* ==========================
+      About 動畫
+========================== */
+
+#about.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================
+      點頭像動畫
+========================== */
+
+.avatar{
+
+    display:flex;
+    justify-content:center;
+
+    transition:.8s ease;
+
+}
+
+.avatar.move{
+
+    transform:translateX(-180px);
+
+}
+
+.intro-panel{
+
+    
+
+    position:absolute;
+
+    left:66%;
+
+    top:62%;
+
+   transform:translateY(-50%); 
+
+
+    width:400px;
+
+
+    text-align:left;
+
+    visibility:hidden;
+
+    
+
+}
+
+.intro-panel.show{
+
+   visibility:visible;
+}
+
+
+
+.intro-panel h3{
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.6),
+    0 0 20px rgba(255,170,220,.45);
+
+    font-size:50px;
+
+    margin-bottom:40px;
+
+}
+
+.intro-panel p{
+
+    text-shadow:
+    0 0 8px rgba(255,255,255,.3),
+    0 0 15px rgba(255,170,220,.2);
+
+    font-size:23px;
+    line-height:2;
+
+}
+
+
+.intro-panel h3.fade-item.show{
+    opacity:1;
+}
+
+
+.fade-item{
+
+    opacity:0;
+
+    transform:translateY(12px);
+
+    transition:.6s ease;
+
+}
+
+.fade-item.show{
+
+    opacity:.8;
+
+    transform:translateY(0);
+
+}
+
+
+
+.title-box{
+
+    transition: opacity .8s ease;
+
+}
+
+.title-box.fade{
+
+    opacity:0;
+
+}
+
+.intro-panel p.thanks{
+
+    font-size:30px;
+
+    color:#fff;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.6),
+        0 0 20px rgba(255,170,220,.35);
+
+}
+
