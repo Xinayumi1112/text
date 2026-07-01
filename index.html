@@ -1,131 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-<title> 認 識 欣 欣 🩷</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>認識欣欣 🩷 | XIN Little World</title>
+    <meta name="description" content="Welcome to Xin's little world. 一個關於欣欣、遊戲、創作與生活小美好的粉黑系個人網站。" />
+    <meta property="og:title" content="認識欣欣 🩷" />
+    <meta property="og:description" content="Welcome to Xin's little world. 遊戲、創作、畫畫與生活分享。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/AA.jpeg" />
 
-<meta charset="UTF-8">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="./style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
-
-
-
-  
 <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
 
-<div class="container">
+    <main class="landing" id="landing">
+        <p class="eyebrow">Welcome to</p>
+        <h1>Xin's Little World</h1>
+        <button id="heart" class="heart" aria-label="Touch the heart">🩷</button>
+        <p class="tip">♡ Touch the heart to begin ♡</p>
 
-    <div id="heart">🩷</div>
+        <section id="card" class="typing-card hidden" aria-live="polite">
+            <div id="typing"></div>
+            <button id="enterBtn" class="enter-btn hidden">Let's begin →</button>
+        </section>
+    </main>
 
-    <p class="tip">♡ Touch ♡</p>
+    <button id="musicBtn" class="music-btn" aria-label="Open music">
+        <span class="icon">♪</span>
+        <span class="text">Music</span>
+    </button>
 
-    <div id="card" class="hidden">
+    <section id="about" class="about" aria-label="About Xin">
+        <nav class="topbar">
+            <div class="logo">🩷 <span>XIN</span></div>
+            <button id="backTop" class="ghost-btn">Back</button>
+        </nav>
 
+        <div class="about-grid">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">About me</p>
+                <h2>Hello.<br>I'm Xin.</h2>
+                <p class="welcome">慢熱、喜歡遊戲與創作，也喜歡把生活裡的小美好收藏起來。</p>
+                <div class="quick-tags">
+                    <span>Gaming</span>
+                    <span>Drawing</span>
+                    <span>Creation</span>
+                    <span>Life</span>
+                </div>
+            </div>
 
+            <div class="profile-card reveal delay-1" id="profileCard">
+                <div class="photo-wrap">
+                    <div class="photo" id="photo" role="img" aria-label="Xin profile photo"></div>
+                </div>
+                <div class="profile-text">
+                    <h3>IG ayumi1112_ 🩷</h3>
+                    <p>尼好呀，我是欣欣。是一個慢熱的遊戲玩家，喜歡捏臉、創作、畫畫。</p>
+                    <p>也喜歡分享生活中的小美好，歡迎各位小夥伴悶與我交流哇 ♡</p>
+                </div>
+            </div>
 
-        <div id="typing"></div>
+            <div class="mini-card reveal delay-2">
+                <h3>Love</h3>
+                <p>喜歡舒服的氛圍、可愛的畫面、漂亮的角色，以及能慢慢沉浸的遊戲世界。</p>
+            </div>
 
-        <button id="enterBtn" class="hidden">
-            Let's begin →
-        </button>
-
-    </div>
-
-</div>
-
-
-<button id="musicBtn">
-
-    <span class="icon">♪</span>
-
-    <span class="text">♡♡ </span>
-
-</button>
-
-
-<!-- 第二頁放這裡 -->
- <!-- ==========================
-        About Me
-========================== -->
-
-<section id="about">
-
-    <div class="about-page">
-
-        <div class="logo">
-            🩷 <span>XIN</span>
+            <div class="mini-card reveal delay-3">
+                <h3>Message</h3>
+                <p>♡ Thank you for visiting. ♡<br>謝謝你來到這個小小世界。</p>
+            </div>
         </div>
+    </section>
 
-        <div class="content">
-
-            <div class="title-box" id="titleBox">
-
-            <h1>Hello.</h1>
-
-            <h2>I'm Xin.</h2>
-
-            <p class="welcome">
-                Welcome to my little world. 🩷
-            </p>
-
-            </div>
-
-
-            <div class="avatar">
-
-            <div class="photo" id="photo"></div>
-
-            </div>
-
-    <div class="intro-panel" id="introPanel">
-
-   <h3 class="fade-item">IG ayumi1112_ 🩷</h3>
-
-    <p class="fade-item">
-    尼好呀 我是欣欣 🩷
-    </p>
-
-    <p class="fade-item">
-    我是個慢熱的遊戲玩家 ..
-    </p>
-
-    <p class="fade-item">
-    喜歡捏臉、創作、畫畫
-    </p>
-
-    
-    <p class="fade-item">
-    也喜歡分享生活中的小美好 ♡
-    </p>
-
-    <p class="fade-item">
-    歡迎各位小夥伴悶與我交流哇 ♡
-    </p>
-
-    <p class="thanks fade-item">
-    ♡ Thank you for visiting. ♡
-    </p>
-
-</div>
-
-</div>
-
-
-    </div>
-
-</section>
-  <script src="./script.js"></script>
-
-
-
-
+    <script src="./script.js"></script>
 </body>
 </html>
-
